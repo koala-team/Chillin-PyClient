@@ -5,7 +5,7 @@
 import sys
 
 # chillin imports
-from chillin_pyclient import GameClient
+from chillin_client import GameClient
 
 # project imports
 from ai import AI

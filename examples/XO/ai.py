@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 # chillin imports
-from chillin_pyclient import TurnbasedAI
+from chillin_client import TurnbasedAI
 
 # project imports
 from ks.commands import Place

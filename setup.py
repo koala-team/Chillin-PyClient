@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 
 setup(
-    name='chillin-pyclient',
+    name='chillin-client',
     version='1.0.0',
     description='Chillin AI Game Framework (Python Client)',
     long_description='',
