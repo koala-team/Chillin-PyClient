@@ -80,8 +80,8 @@ class Core:
             max_tries -= 1
             if max_tries <= 0:
                 break
-            sleep(retry_waiting_time)
             log("Reconnecting in %s seconds ..." % retry_waiting_time)
+            sleep(retry_waiting_time)
 
         return False
 
