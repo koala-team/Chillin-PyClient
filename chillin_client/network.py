@@ -21,7 +21,9 @@ class Network:
 
 
     def connect(self):
+        self._sock.settimeout(Config.config['net']['timeout'])
         self._sock.connect(self._bind)
+        self._sock.settimeout(None)
 
 
     def recv_data(self):
