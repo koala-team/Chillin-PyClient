@@ -24,7 +24,6 @@ from .helpers.logger import log
 class Core:
 
     def __init__(self):
-        self._offline_mode = Config.config['general']['offline_mode']
         self._game_running = False
         self._command_send_queue = Queue()
 
