@@ -126,6 +126,7 @@ class Core:
 
             elif msg_type == EndGame.name():
                 self._handle_end_game(msg)
+                break
 
 
 
