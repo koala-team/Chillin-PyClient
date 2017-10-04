@@ -10,7 +10,8 @@
 		"host": "localhost",
 		"port": 5000,
 		"max_tries": 5,
-		"retry_waiting_time": 1
+		"retry_waiting_time": 1,
+		"timeout": 2
 	},
 
 	"ai": {
