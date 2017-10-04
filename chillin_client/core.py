@@ -107,10 +107,10 @@ class Core:
         if client_joined_msg.joined:
             self._ai.my_side = client_joined_msg.side_name
             self._ai.sides = client_joined_msg.sides
-            log("Successfully joined game")
+            log("joined the game successfully")
             return True
 
-        log("Failed to join game")
+        log("Failed to join the game")
         return False
 
 
@@ -125,7 +125,7 @@ class Core:
                 self._handle_start_game(msg)
 
             elif msg_type == EndGame.name():
-                return self._handle_end_game(msg)
+                self._handle_end_game(msg)
 
 
 
