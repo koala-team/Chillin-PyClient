@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='chillin-client',
-    version='1.1.0',
+    version='1.1.1',
     description='Chillin AI Game Framework (Python Client)',
     long_description='',
     author='Koala',
