@@ -4,7 +4,7 @@
 import sys
 
 from time import sleep
-from threading import Thread, Timer
+from threading import Thread
 
 if sys.version_info > (3,):
     from queue import Queue
@@ -132,24 +132,16 @@ class Core:
 
     def _handle_snapshot(self, msg):
         self._ai.update(msg)
-        if self._game_running and Config.config['ai']['create_new_thread'] and \
-                self._ai.allowed_to_decide():
+        if not self._game_running:
+            self._game_running = True
+            if not Config.config['ai']['create_new_thread'] or self._ai.allowed_to_decide():
+                Thread(target=self._ai.decide).start()
+        elif Config.config['ai']['create_new_thread'] and self._ai.allowed_to_decide():
             Thread(target=self._ai.decide).start()
 
 
     def _handle_start_game(self, msg):
-
-        def start_game():
-            self._game_running = True
-            if self._ai.allowed_to_decide() or not Config.config['ai']['create_new_thread']:
-                self._ai.decide()
-
         Thread(target=self._send_command_thread).start()
-
-        Timer(
-            msg.start_time - utcnowts(),
-            start_game
-        ).start()
 
 
     def _handle_end_game(self, msg):
