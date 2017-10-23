@@ -25,7 +25,6 @@ setup(
     license='AGPL License, Version 3.0',
 
     install_requires=[
-        'koala-serializer==0.5.1',
         'configparser==3.5.0',
         'enum34==1.1.6'
     ],
