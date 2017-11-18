@@ -107,6 +107,9 @@ class Core:
         if client_joined_msg.joined:
             self._ai.my_side = client_joined_msg.side_name
             self._ai.sides = client_joined_msg.sides
+            self._ai.other_sides = self._ai.sides.keys()
+            self._ai.other_sides.remove(self._ai.my_side)
+            self._ai.other_side = self._ai.other_sides[0] if len(self._ai.other_sides) == 1 else None
             log("joined the game successfully")
             return True
 

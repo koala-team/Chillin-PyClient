@@ -12,6 +12,8 @@ class BaseAI(object):
         self.world = world
         self.sides = None
         self.my_side = None
+        self.other_side = None
+        self.other_sides = []
 
 
     def set_command_send_queue(self, q):
