@@ -137,6 +137,7 @@ class Core:
         self._ai.update(msg)
         if not self._game_running:
             self._game_running = True
+            self._ai.initialize()
             if not Config.config['ai']['create_new_thread'] or self._ai.allowed_to_decide():
                 Thread(target=self._ai.decide).start()
         elif Config.config['ai']['create_new_thread'] and self._ai.allowed_to_decide():

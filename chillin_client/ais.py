@@ -40,6 +40,10 @@ class BaseAI(object):
             self._send_command(command)
 
 
+    def initialize(self):
+        pass
+
+
     def decide(self):
         pass
 
