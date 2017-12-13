@@ -111,6 +111,7 @@ class Core:
             self._ai.other_sides.remove(self._ai.my_side)
             self._ai.other_side = self._ai.other_sides[0] if len(self._ai.other_sides) == 1 else None
             log("joined the game successfully")
+            log("Side: %s" % client_joined_msg.side_name)
             return True
 
         log("Failed to join the game")
