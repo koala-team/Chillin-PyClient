@@ -4,6 +4,7 @@
 import struct
 import socket
 import ssl
+import errno
 
 # project imports
 from .config import Config
@@ -45,7 +46,12 @@ class Network:
 
     def send_data(self, data):
         size = struct.pack('I', len(data))
-        return self._sock.send(size + data)
+        try:
+            return self._sock.send(size + data)
+        except socket.error as e:
+            if not e.errno in [errno.EPIPE, errno.WSAECONNRESET]:
+                raise e
+            return -1
 
 
     def close(self):
